@@ -1,5 +1,7 @@
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import model.Aluno;
 import model.Pessoa;
@@ -96,12 +98,13 @@ public class Principal {
                     System.out.println("Nao foi possível atualizar o telefone da pessoa!");
                 }
 
-                System.out.println("Qual a data de nascimento da Pessoa?");
-                Scanner novaDtNasc = new Scanner(System.in);
+                System.out.println("Qual a data de nascimento da Pessoa? (dd/mm/yyyy)");
+                Scanner sNovaDtNasc = new Scanner(System.in);
+                DateFormat dtFormatada = new SimpleDateFormat("dd/MM/yyyy");
                 try {
-                    p.setDataNascimento(novaDtNasc.next());
+                    p.setDataNascimento(dtFormatada.parse(sNovaDtNasc.next()));
                 } catch (Exception e) {
-                    System.out.println("Nao foi possível atualizar a data de nascimento da pessoa!");
+                    System.out.println("Nao foi possível registrar a data de nascimento da pessoa!");
                 }
 
                 p.setDataAlteracao(Calendar.getInstance().getTime());
@@ -168,10 +171,11 @@ public class Principal {
             System.out.println("Nao foi possível registrar o telefone da pessoa!");
         }
 
-        System.out.println("Qual a data de nascimento da Pessoa?");
-        Scanner dtNasc = new Scanner(System.in);
+        System.out.println("Qual a data de nascimento da Pessoa? (dd/mm/yyyy)");
+        Scanner sDtNasc = new Scanner(System.in);
+        DateFormat dtFormatada = new SimpleDateFormat("dd/MM/yyyy");
         try {
-            p.setDataNascimento(dtNasc.next());
+            p.setDataNascimento(dtFormatada.parse(sDtNasc.next()));
         } catch (Exception e) {
             System.out.println("Nao foi possível registrar a data de nascimento da pessoa!");
         }
@@ -193,7 +197,7 @@ public class Principal {
                 a.setDataAlteracao(p.getDataCadastro());
                 d.add(a);
             } catch (Exception e) {
-                System.out.println("Nao foi possível registrar a nota do aluno!");                
+                System.out.println("Nao foi possível registrar a nota do aluno!");
             }
         } else {
             d.add(p);

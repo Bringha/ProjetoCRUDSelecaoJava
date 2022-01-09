@@ -15,14 +15,14 @@ public class Pessoa {
 
     private String nome;
     private String telefone;
-    private String dataNascimento;
+    private Date dataNascimento;
     private Date dataCadastro;
     private Date dataAlteracao;
 
     public Pessoa() {
     }
 
-    public Pessoa(String nome, String telefone, String dataNascimento) {
+    public Pessoa(String nome, String telefone, Date dataNascimento) {
         this.nome = nome;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
@@ -44,11 +44,11 @@ public class Pessoa {
         this.telefone = telefone;
     }
 
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
